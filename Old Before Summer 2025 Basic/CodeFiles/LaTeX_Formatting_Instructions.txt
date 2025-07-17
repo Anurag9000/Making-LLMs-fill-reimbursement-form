@@ -1,0 +1,182 @@
+**LaTeX Formatting Rules and Guidelines**
+
+LaTeX is a typesetting system commonly used for technical and scientific documents. Below are key rules and formatting guidelines to help an AI learn how to generate LaTeX code accurately.
+
+---
+
+## **1. Basic Document Structure**
+A LaTeX document follows a specific structure:
+
+```
+\documentclass[options]{class}
+\usepackage{package}
+\begin{document}
+    Content goes here...
+\end{document}
+```
+
+### **Common Document Classes:**
+- `article`: For articles and short reports.
+- `report`: For longer documents with chapters.
+- `book`: For books with more structural elements.
+- `letter`: For letters.
+
+### **Commonly Used Packages:**
+- `graphicx`: For including images.
+- `amsmath`: For advanced mathematical formatting.
+- `geometry`: For customizing margins.
+- `hyperref`: For clickable links.
+
+---
+
+## **2. Text Formatting**
+- **Bold Text:** `\textbf{bold text}`
+- **Italic Text:** `\textit{italic text}`
+- **Underlined Text:** `\underline{underlined text}`
+- **Small Caps:** `\textsc{Small Caps}`
+
+### **Special Characters in LaTeX:**
+The following characters need escaping using `\`:
+```
+# $ % & _ { } ~ ^ \
+```
+Example: `10\% discount` renders as **10% discount**.
+
+---
+
+## **3. Lists**
+### **Unordered List:**
+```
+\begin{itemize}
+    \item First item
+    \item Second item
+\end{itemize}
+```
+
+### **Ordered List:**
+```
+\begin{enumerate}
+    \item First item
+    \item Second item
+\end{enumerate}
+```
+
+---
+
+## **4. Tables**
+Tables use the `tabular` environment:
+```
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Column 1 & Column 2 & Column 3 \\
+        \hline
+        A & B & C \\
+        D & E & F \\
+        \hline
+    \end{tabular}
+    \caption{Sample Table}
+\end{table}
+```
+
+- **`|c|c|c|`**: Defines three centered columns with vertical lines.
+- **`\\`**: Ends a row.
+- **`\hline`**: Inserts a horizontal line.
+
+---
+
+## **5. Equations and Mathematics**
+Mathematical equations are enclosed within `$...$` (inline) or `\[ ... \]` (display mode).
+
+### **Inline Equation:**
+```
+Euler's formula: $e^{ix} = \cos x + i\sin x$
+```
+
+### **Displayed Equation:**
+```
+\[
+    F = ma
+\]
+```
+
+For more complex equations, use the `equation` environment:
+```
+\begin{equation}
+    E = mc^2
+\end{equation}
+```
+
+### **Mathematical Operators:**
+- `\frac{a}{b}` → \( \frac{a}{b} \)
+- `\sum_{n=1}^{\infty} n^2` → \( \sum_{n=1}^{\infty} n^2 \)
+- `\int_{a}^{b} f(x)dx` → \( \int_{a}^{b} f(x)dx \)
+
+---
+
+## **6. Figures and Images**
+To include images, use:
+```
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image.png}
+    \caption{Sample Image}
+    \label{fig:image1}
+\end{figure}
+```
+
+- `\includegraphics[width=...]` adjusts the image size.
+- `\caption{}` adds a caption.
+- `\label{}` assigns a reference ID.
+
+---
+
+## **7. References and Citations**
+For bibliographies, use:
+```
+\begin{thebibliography}{99}
+    \bibitem{ref1} Author, Title, Year.
+\end{thebibliography}
+```
+
+For citations in the text:
+```
+This was proposed by Einstein \cite{ref1}.
+```
+
+---
+
+## **8. Sections and Subsections**
+```
+\section{Main Section}
+\subsection{Subsection}
+\subsubsection{Sub-subsection}
+```
+
+---
+
+## **9. Page Formatting**
+- **Page Break:** `\newpage`
+- **Line Break:** `\linebreak`
+- **No Indentation:** `\noindent`
+
+---
+
+## **10. Customizing Page Layout**
+Use `geometry` package for margins:
+```
+\usepackage[a4paper, margin=1in]{geometry}
+```
+
+---
+
+## **11. Common Errors and Debugging**
+- **Mismatched Braces:** Ensure every `{` has a matching `}`.
+- **Undefined Control Sequence:** Ensure packages supporting the command are loaded.
+- **Overfull Hbox:** Caused by long words. Solution: `\sloppy` or `\break`.
+
+---
+
+This document serves as a fundamental guide for an AI to learn LaTeX formatting and structure. For deeper learning, it should analyze real-world LaTeX documents and infer rules dynamically.
+

@@ -1,0 +1,7 @@
+Finetuning models on Latex forms: Fine-tuning a smaller model on specific tasks (e.g., form filling) could improve accuracy.
+
+Fine-tuning or distillation of large models: Explore the possibility of distillation to improve model performance for specific tasks, possibly in combination with fine-tuning.
+
+Using distillation for model compression: Exploring the possibility of distilling larger models (e.g., 70B) into smaller ones (e.g., 1B) for task-specific performance.
+
+Datasets for Latex form filling: Need for accurate, diverse Latex datasets for training or fine-tuning the models.

@@ -1,0 +1,4 @@
+PWD D:\Making LLMs fill Reimbursement form
+INPUT C:\Users\DELL\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
+INPUT output\Filled_Reimbursement_Form.tex
+OUTPUT Filled_Reimbursement_Form.log

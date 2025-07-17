@@ -1,0 +1,65 @@
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\begin{document}
+
+\begin{center}
+    \textbf{DEPARTMENT OF ELECTRICAL ENGINEERING}\\
+    \textbf{INDIAN INSTITUTE OF TECHNOLOGY ROORKEE}
+\end{center}
+
+\vspace{1cm}
+
+\noindent
+\textbf{No. EED/Reimbursement} \hfill \textbf{Date: \_\_\_\_\_\_\_\_\_\_}
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{To,}\\
+Dean (F\&P) / SRIC\\
+I.I.T. Roorkee\\
+
+\vspace{0.5cm}
+
+\noindent
+Enclosed please find \_\_\_\_ no. of cash memo(s) for the total amount of Rs. \_\_\_\_\_\_\_\_\_ (Rs.
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ only) against the expenditure made by Dr.
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Professor / Associate Professor / Asst. Professor
+of Electrical Engineering Department in cash. It is therefore requested that the above-mentioned
+amount may be reimbursed and debited the same to Grant No: \_\_\_\_\_\_\_\_\_\_
+
+\vspace{1cm}
+
+\noindent
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    S.N & Cash Memo No. & Date & Name of the Firms & Amount \\
+    \hline
+    1 & & & & \\
+    2 & & & & \\
+    3 & & & & \\
+    4 & & & & \\
+    5 & & & & \\
+    6 & & & & \\
+    7 & & & & \\
+    8 & & & & \\
+    9 & & & & \\
+    10 & & & & \\
+    11 & & & & \\
+    12 & & & & \\
+    \hline
+\end{tabular}
+
+\vspace{1cm}
+
+\noindent
+Signature: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
+Name: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
+Designation: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
+Department of Electrical Engg.
+
+\end{document}
