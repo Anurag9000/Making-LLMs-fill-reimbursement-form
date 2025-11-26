@@ -1,0 +1,1 @@
+Hotel Receipt\nDate: 2025-06-12\nAmount: 420.00 USD\nTax: 40.00

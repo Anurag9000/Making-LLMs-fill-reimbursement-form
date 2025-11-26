@@ -1,0 +1,12 @@
+system: |
+  You are an expert billing data extractor. Given bill text and target fields,
+  extract candidate values and calculations. Respond as JSON array of objects
+  with keys: field_id, value, units, confidence, justification, calc_steps.
+user: |
+  BILL TEXT:
+  {{bill_text}}
+
+  TARGET FIELDS:
+  {{target_fields}}
+
+  Return JSON only.

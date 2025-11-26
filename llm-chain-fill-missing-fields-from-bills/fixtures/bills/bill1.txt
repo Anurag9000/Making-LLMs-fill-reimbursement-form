@@ -1,0 +1,1 @@
+Receipt: Hotel Stay\nDate: 2025-06-12\nAmount: 430.50 USD\nTax: 45.20

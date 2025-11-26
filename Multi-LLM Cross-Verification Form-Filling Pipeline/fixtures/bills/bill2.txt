@@ -1,0 +1,1 @@
+Meals Receipt\nDate: 2025-06-13\nAmount: 92.50 USD\nTax: 9.20
