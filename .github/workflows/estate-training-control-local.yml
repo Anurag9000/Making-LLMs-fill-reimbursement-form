@@ -1,10 +1,8 @@
 name: Estate local training-control certificate
 on:
-  push:
-    branches: [main]
+  push: {branches: [main]}
   workflow_dispatch:
-permissions:
-  contents: read
+permissions: {contents: read}
 jobs:
   certificate:
     runs-on: ubuntu-latest
@@ -17,13 +15,11 @@ jobs:
       - name: Fetch exact canonical repository validator
         run: |
           python - <<'PY'
-          import hashlib, urllib.request
+          import hashlib,urllib.request
           from pathlib import Path
-          commit='1cd24a744054a480b4882eeb72308074ce5f9304'; expected='42e6fee5c30b12fb3a502d89288c1f7c71cf6533'
-          url=f'https://raw.githubusercontent.com/Anurag9000/RigorousRAG/{commit}/tools/repository_local_estate_certificate.py'
-          data=urllib.request.urlopen(url,timeout=60).read(); actual=hashlib.sha1(f'blob {len(data)}\0'.encode()+data).hexdigest()
-          if actual!=expected: raise SystemExit(f'canonical local validator blob mismatch: {actual} != {expected}')
-          path=Path('.training_control/canonical_repository_local_estate_certificate.py'); path.parent.mkdir(parents=True,exist_ok=True); path.write_bytes(data)
+          c='51b8e06cf9d9391182c3e130599b7e5f833f4fa4'; e='08459196d5419499ec2769994cebad9fb043d680'; d=urllib.request.urlopen(f'https://raw.githubusercontent.com/Anurag9000/RigorousRAG/{c}/tools/repository_local_estate_certificate.py',timeout=60).read(); a=hashlib.sha1(f'blob {len(d)}\0'.encode()+d).hexdigest()
+          if a!=e: raise SystemExit(f'validator blob mismatch: {a} != {e}')
+          p=Path('.training_control/canonical_repository_local_estate_certificate.py');p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(d)
           PY
       - name: Certify this repository
         env:
@@ -32,8 +28,4 @@ jobs:
         run: python .training_control/canonical_repository_local_estate_certificate.py --repository "$GITHUB_REPOSITORY" --root . --output .training_control/local_estate_certificate.json
       - uses: actions/upload-artifact@v4
         if: always()
-        with:
-          name: estate-local-training-control-${{ github.sha }}
-          path: .training_control/local_estate_certificate.json
-          if-no-files-found: warn
-          retention-days: 30
+        with: {name: 'estate-local-training-control-${{ github.sha }}', path: .training_control/local_estate_certificate.json, if-no-files-found: warn, retention-days: 30}
