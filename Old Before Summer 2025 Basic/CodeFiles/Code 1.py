@@ -6,13 +6,17 @@ from pathlib import Path
 from PyPDF2 import PdfReader
 import fitz  # pymupdf
 import easyocr
+import torch
+import sys
 from ollama import chat
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+from inference_device_policy import easyocr_gpu_argument
 import requests
-<<<<<<< HEAD
 import pypandoc
 from docx2pdf import convert
-=======
->>>>>>> 3993637251683a2f885b9d9f657dbeaa244721e5
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -80,7 +84,7 @@ def get_pdf_text(pdf_path):
 def perform_ocr_on_pdf(pdf_path):
     """Extracts text using OCR for scanned PDFs."""
     try:
-        ocr_reader = easyocr.Reader(['en'])
+        ocr_reader = easyocr.Reader(['en'], gpu=easyocr_gpu_argument(torch))
         doc = fitz.open(pdf_path)
         text = ""
         for page_index in range(len(doc)):
