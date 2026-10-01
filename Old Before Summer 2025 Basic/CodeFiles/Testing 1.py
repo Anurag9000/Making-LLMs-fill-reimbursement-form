@@ -1,5 +1,6 @@
 # Optional: For better acceleration (especially in multi-image or video scenarios),
 # you can enable flash_attention_2 by uncommenting the following block:
+device = resolve_torch_device(torch)
 # model = Qwen2VLForConditionalGeneration.from_pretrained(
 #     "prithivMLmods/LatexMind-2B-Codec",
 #     torch_dtype=torch.bfloat16,
@@ -14,7 +15,15 @@
 # processor = AutoProcessor.from_pretrained("Qwen/Qwen2-VL-2B-Instruct", min_pixels=min_pixels, max_pixels=max_pixels)
 
 import os
+import sys
+from pathlib import Path
 import torch
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+from inference_device_policy import resolve_torch_device, transformers_device_map
+
 from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
 from qwen_vl_utils import process_vision_info
 
@@ -22,7 +31,7 @@ from qwen_vl_utils import process_vision_info
 model = Qwen2VLForConditionalGeneration.from_pretrained(
     "prithivMLmods/LatexMind-2B-Codec",
     torch_dtype="auto",
-    device_map="auto"
+    device_map=transformers_device_map(device)
 )
 
 # 2. Load the processor
@@ -70,7 +79,7 @@ for image_file in image_files:
         padding=True,
         return_tensors="pt",
     )
-    inputs = inputs.to("cuda" if torch.cuda.is_available() else "cpu")
+    inputs = inputs.to(device)
 
     # 9. Generate the LaTeX code
     generated_ids = model.generate(**inputs, max_new_tokens=1024)
