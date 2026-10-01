@@ -6,7 +6,14 @@ from pathlib import Path
 from PyPDF2 import PdfReader
 import fitz  # pymupdf
 import easyocr
+import torch
+import sys
 from ollama import chat
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+from inference_device_policy import easyocr_gpu_argument
 import requests
 
 # Configure logging
@@ -61,7 +68,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
 # OCR Reader
-reader = easyocr.Reader(["en"])
+reader = easyocr.Reader(["en"], gpu=easyocr_gpu_argument(torch))
 
 def get_pdf_text(pdf_path):
     """Extracts text from a PDF. Uses OCR if normal extraction fails."""
